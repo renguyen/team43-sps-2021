@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta charset="UTF-8" content="width=device-width; height=device-height">
+    <title>Meme Generator</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body style="background-color:powderblue;">
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1 class="mainPageTitle">Meme Generator</h1>
+    <!-- TODO: Replace "/hello" with actual links once the servlets are ready -->
+      <form action="/hello" method="POST" enctype="multipart/form-data">
+        <label for="uploadFileBrowser" class="uploadButton">Upload Meme</label>
+        <input type="file" value="Upload Meme" id="uploadFileBrowser" name="image" class="hidden" onchange="form.submit()">
+      </form>
+      <a href="/hello" class="noUnderline">
+        <p class="seeMemesButton">See All Memes</p>
+      </a>
     </div>
   </body>
 </html>

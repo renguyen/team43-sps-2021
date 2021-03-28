@@ -7,3 +7,48 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+.uploadButton {
+    cursor: pointer;
+    background: #F9F871;
+    color: powderblue;
+    width: 400px;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    left: 140px;
+    top: 150px;
+}
+
+.seeMemesButton {
+    cursor: pointer;
+    width: 325px;
+    background: #F9F871;
+    color: powderblue;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position:relative;
+    left: 132px;
+    top: 150px;
+}
+
+.noUnderline {
+    text-decoration: none;
+}
+
+.mainPageTitle {
+    color: #324B4E;
+    text-align: center;
+    font-size: 75px;
+}
+
+.hidden {
+    opacity: 0;
+}
