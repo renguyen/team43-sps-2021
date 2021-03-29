@@ -8,7 +8,11 @@
   margin-top: 20px;
 }
 
-.uploadButton {
+body {
+    background-color: powderblue;
+}
+
+.upload-button {
     cursor: pointer;
     background: #F9F871;
     color: powderblue;
@@ -24,7 +28,7 @@
     top: 150px;
 }
 
-.seeMemesButton {
+.see-memes-button {
     cursor: pointer;
     width: 325px;
     background: #F9F871;
@@ -39,11 +43,11 @@
     top: 150px;
 }
 
-.noUnderline {
+.no-underline {
     text-decoration: none;
 }
 
-.mainPageTitle {
+.main-page-title {
     color: #324B4E;
     text-align: center;
     font-size: 75px;
