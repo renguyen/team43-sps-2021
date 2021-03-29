@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body style="background-color:powderblue;">
+  <body>
     <div id="content">
-      <h1 class="mainPageTitle">Meme Generator</h1>
+      <h1 class="main-page-title ">Meme Generator</h1>
     <!-- TODO: Replace "/hello" with actual links once the servlets are ready -->
       <form action="/hello" method="POST" enctype="multipart/form-data">
-        <label for="uploadFileBrowser" class="uploadButton">Upload Meme</label>
-        <input type="file" value="Upload Meme" id="uploadFileBrowser" name="image" class="hidden" onchange="form.submit()">
+        <label for="uploadImage" class="upload-button">Upload Meme</label>
+        <input type="file" value="Upload Meme" id="uploadImage" name="image" class="hidden" onchange="form.submit()">
       </form>
-      <a href="/hello" class="noUnderline">
-        <p class="seeMemesButton">See All Memes</p>
+      <a href="/hello" class="no-underline">
+        <p class="see-memes-button">See All Memes</p>
       </a>
     </div>
   </body>
