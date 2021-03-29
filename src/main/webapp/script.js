@@ -26,3 +26,10 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+async function fetchMemeFile() {
+  const responseFromServer = await fetch('/memes');
+  const textFromResponse = await responseFromServer.text();
+  const memeContainer = document.getElementById('memes-container');
+  memeContainer.innerHTML = textFromResponse;
+}
