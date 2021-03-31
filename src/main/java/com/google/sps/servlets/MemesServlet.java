@@ -23,15 +23,22 @@ import java.util.*;
 @WebServlet("/memes")
 @MultipartConfig
 public class MemesServlet extends HttpServlet {
+  public final String PROJECT_ID = "jurquidezcalvo-sps-spring21";
+  public final String BUCKET_NAME = "jurquidezcalvo-sps-spring21.appspot.com"
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    // Get the file chosen by the user.
     Part filePart = request.getPart("image");
     String fileName = UUID.randomUUID().toString();
     InputStream fileInputStream = filePart.getInputStream();
-
+    
+    // Upload the file and get its URL
     String uploadedFileUrl = uploadToCloudStorage(fileName, fileInputStream);
 
+    // Output some HTML that shows the data the user entered.
+    // You could also store the uploadedFileUrl in Datastore instead.
     PrintWriter out = response.getWriter();
     out.println("<p>Your Meme:</p>");
     out.println("<a href=\"" + uploadedFileUrl + "\">");
@@ -39,15 +46,16 @@ public class MemesServlet extends HttpServlet {
     out.println("</a><br>");
   }
 
-  String uploadToCloudStorage(String fileName, InputStream fileInputStream) {
-    final String PROJECT_ID = "spring21-sps-43";
-    final String BUCKET_NAME = "spring21-sps-43.appspot.com";
+    // Uploads a file to Cloud Storage and returns the uploaded file's URL. 
+    private static String uploadToCloudStorage(String fileName, InputStream fileInputStream) {
     Storage storage = StorageOptions.newBuilder().setProjectId(PROJECT_ID).build().getService();
     BlobId blobId = BlobId.of(BUCKET_NAME, fileName);
     BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
-
+    
+    // Upload the file to Cloud Storage.
     Blob blob = storage.create(blobInfo, fileInputStream);
 
+    // Return the uploaded file's URL.
     return blob.getMediaLink();
   }
 
@@ -55,9 +63,8 @@ public class MemesServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");
-
-    final String PROJECT_ID = "spring21-sps-43";
-    final String BUCKET_NAME = "spring21-sps-43.appspot.com";
+    
+    // List all of the uploaded files.
     Storage storage = StorageOptions.newBuilder().setProjectId(PROJECT_ID).build().getService();
     Bucket bucket = storage.get(BUCKET_NAME);
     Page<Blob> blobs = bucket.list();
