@@ -26,6 +26,10 @@ public class MemesServlet extends HttpServlet {
   public final String PROJECT_ID = "spring21-sps-43";
   public final String BUCKET_NAME = "spring21-sps-43.appspot.com"
 
+  /**
+  Inputs: HTTP request and response
+  Output: String containing the HTML of the response
+  **/
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
@@ -47,6 +51,10 @@ public class MemesServlet extends HttpServlet {
   }
 
     // Uploads a file to Cloud Storage and returns the uploaded file's URL. 
+    /**
+    Inputs: String of the file name and the image itself
+    Output: String containing the URL of the image
+    **/
     private static String uploadToCloudStorage(String fileName, InputStream fileInputStream) {
     Storage storage = StorageOptions.newBuilder().setProjectId(PROJECT_ID).build().getService();
     BlobId blobId = BlobId.of(BUCKET_NAME, fileName);
@@ -59,7 +67,10 @@ public class MemesServlet extends HttpServlet {
     return blob.getMediaLink();
   }
 
-
+  /**
+  Inputs: HTTP request and response
+  Output: String containing the HTML of each image on Google Cloud
+  **/
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");
