@@ -23,8 +23,8 @@ import java.util.*;
 @WebServlet("/memes")
 @MultipartConfig
 public class MemesServlet extends HttpServlet {
-  public final String PROJECT_ID = "jurquidezcalvo-sps-spring21";
-  public final String BUCKET_NAME = "jurquidezcalvo-sps-spring21.appspot.com"
+  public final String PROJECT_ID = "spring21-sps-43";
+  public final String BUCKET_NAME = "spring21-sps-43.appspot.com"
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
