@@ -27,8 +27,9 @@ public class MemesServlet extends HttpServlet {
   public final String BUCKET_NAME = "spring21-sps-43.appspot.com"
 
   /**
-  Inputs: HTTP request and response
-  Output: String containing the HTML of the response
+  Handles the upload of the meme to the Cloud Storage
+  it require an HTTP request and response from the client-side and will return a 
+  string containing the HTML of the response that will contain the meme URL that will be displayed in the page
   **/
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,10 +51,9 @@ public class MemesServlet extends HttpServlet {
     out.println("</a><br>");
   }
 
-    // Uploads a file to Cloud Storage and returns the uploaded file's URL. 
     /**
-    Inputs: String of the file name and the image itself
-    Output: String containing the URL of the image
+    Handles the uploads a file to Cloud Storage and returns the uploaded file's URL. 
+    It require a string of the file name and the image itself to be uploaded and will return a string containing the URL of the image 
     **/
     private static String uploadToCloudStorage(String fileName, InputStream fileInputStream) {
     Storage storage = StorageOptions.newBuilder().setProjectId(PROJECT_ID).build().getService();
@@ -68,8 +68,10 @@ public class MemesServlet extends HttpServlet {
   }
 
   /**
-  Inputs: HTTP request and response
-  Output: String containing the HTML of each image on Google Cloud
+  Handles the display of all the memes from the Cloud Storage
+  it require an HTTP request and response from the client-side and will return a 
+  string containing the HTML of the response that will contain all the memes URL in almost the same size
+  this will be require in the same for show the meme in the main page
   **/
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
