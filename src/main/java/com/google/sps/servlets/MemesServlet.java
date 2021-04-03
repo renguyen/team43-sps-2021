@@ -24,7 +24,7 @@ import java.util.*;
 @MultipartConfig
 public class MemesServlet extends HttpServlet {
   public final String PROJECT_ID = "spring21-sps-43";
-  public final String BUCKET_NAME = "spring21-sps-43.appspot.com"
+  public final String BUCKET_NAME = "spring21-sps-43.appspot.com";
 
   /**
   Handles the upload of the meme to the Cloud Storage
