@@ -23,8 +23,13 @@ import java.util.*;
 @WebServlet("/memes")
 @MultipartConfig
 public class MemesServlet extends HttpServlet {
+<<<<<<< HEAD
   public final String PROJECT_ID = "spring21-sps-43";
   public final String BUCKET_NAME = "spring21-sps-43.appspot.com"
+=======
+  static final String PROJECT_ID = "spring21-sps-43";
+  static final String BUCKET_NAME = "spring21-sps-43.appspot.com";
+>>>>>>> ac2cd0ffba474995ca5e94bdfe941ce924b86195
 
   /**
   Handles the upload of the meme to the Cloud Storage
@@ -87,5 +92,40 @@ public class MemesServlet extends HttpServlet {
       String imgTag = String.format("<img src=\"%s\" width = \"300\"/>", blob.getMediaLink());
       response.getWriter().println(imgTag);
     }
+  }
+
+/** This funtions  randomly  get a string  captions from an array of string. When the function is called
+ * it randomly return memes caption from an array
+ * input: null
+ * return: strings..
+ * 
+ */
+  
+
+  public static String getCpation(){
+//     initilaise an array  of captions
+        final String[] proper_noun = {"Fred", 
+        
+        "When the professor is passionate about teaching and you genuinely understan and enjoy the class.", 
+        " When ur best friend calls u and have some gossip to tell u.", 
+        "When you go off on him and later on realize you were actually wrong",
+        "When you tell everyone about your summer body goals, but you didn’t tell them which summer",
+
+        "  When you’ve been eating healthy for the past 15 minutes and STILL see no progress.",
+
+        
+    
+    };
+    //   import the random module
+        Random random = new Random();
+        // get random  index of array element
+        int index = random.nextInt(proper_noun.length);
+       // System.out.println(proper_noun[index]);
+
+    //    return random caption
+        return proper_noun[index];
+        
+        
+
   }
 }
