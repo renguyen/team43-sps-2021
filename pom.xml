@@ -45,6 +45,27 @@
       <artifactId>google-cloud-storage</artifactId>
       <version>1.113.0</version>
     </dependency>
+
+    <!-- Data Store -->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-datastore</artifactId>
+      <version>1.104.0</version>
+    </dependency>
+
+    <!-- jsoup -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.8.3</version>
+    </dependency>
+
+    <!-- Google Cloud Vision -->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-vision</artifactId>
+      <version>1.100.0</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -87,6 +108,16 @@
                   <mainClass>${exec.mainClass}</mainClass>
                 </transformer>
               </transformers>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+               </filter>
+             </filters>
             </configuration>
           </execution>
         </executions>

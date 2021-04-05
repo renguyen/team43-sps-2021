@@ -8,13 +8,15 @@
   </head>
   <body>
     <div id="content">
-      <h1 class="main-page-title ">Meme Generator</h1>
+      <a href="/" class="no-underline">
+        <h1 class="main-page-title ">Meme Generator</h1>
+      </a>
     <!-- TODO: Replace "/hello" with actual links once the servlets are ready -->
-      <form action="/hello" method="POST" enctype="multipart/form-data">
+      <form action="/memes" method="POST" enctype="multipart/form-data">
         <label for="uploadImage" class="upload-button">Upload Meme</label>
         <input type="file" value="Upload Meme" id="uploadImage" name="image" class="hidden" onchange="form.submit()">
       </form>
-      <a href="/hello" class="no-underline">
+      <a href="/memes" class="no-underline">
         <p class="see-memes-button">See All Memes</p>
       </a>
     </div>
