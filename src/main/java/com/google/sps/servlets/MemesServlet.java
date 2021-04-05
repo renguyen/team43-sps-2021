@@ -120,12 +120,12 @@ public class MemesServlet extends HttpServlet {
    *           If datastore contains one meme: createId() will return 1.
    *           If datastore contains 154 memes: createId() will return 154.
    */
-  private static int createId() {
+  private static long createId() {
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
     Query<Entity> query = Query.newEntityQueryBuilder().setKind("Meme").build();
     QueryResults<Entity> results = datastore.run(query);
 
-    int counter = 0;
+    long counter = 0;
     while (results.hasNext()) {
         Entity entity = results.next();
         counter++;
@@ -185,17 +185,6 @@ public class MemesServlet extends HttpServlet {
         out.println("<p>Tags: "+ entity.getString("tags") + "</p>");
     }
     out.println("</a>");
-    
-    // // List all of the uploaded files.
-    // Storage storage = StorageOptions.newBuilder().setProjectId(PROJECT_ID).build().getService();
-    // Bucket bucket = storage.get(BUCKET_NAME);
-    // Page<Blob> blobs = bucket.list();
-
-    // // Output <img> elements as HTML.
-    // for (Blob blob : blobs.iterateAll()) {
-    //   String imgTag = String.format("<img src=\"%s\" width = \"300\"/>", blob.getMediaLink());
-    //   response.getWriter().println(imgTag);
-    // }
   }
 
   /**
