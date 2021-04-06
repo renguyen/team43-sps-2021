@@ -25,11 +25,11 @@ import java.util.*;
 public class ShareMeme extends HttpServlet {
   public static final String PROJECT_ID = "spring21-sps-43";
   public static final String BUCKET_NAME = "spring21-sps-43.appspot.com";
+  public static final String LINK = "https://spring21-sps-43.appspot.com/share?meme=";
 
   /**
-  Handles the upload of the meme to the Cloud Storage
-  it require an HTTP request and response from the client-side and will return a 
-  string containing the HTML of the response that will contain the meme URL that will be displayed in the page
+  Handles the projection of only one meme. It search with the parameter of memeName the meme with that name
+  and return and HTML with the image and the FACEBOOK and TWITTER share buttons of that link
   **/
   
   @Override
@@ -48,7 +48,8 @@ public class ShareMeme extends HttpServlet {
       if(blob.getName().equals(memeName)){
       String imgTag = String.format("<img src=\"%s\" width = \"300\"/>", blob.getMediaLink());
       response.getWriter().println(imgTag);
-      response.getWriter().println("<div class=\"fb-share-button\" data-href=\"" + "https://spring21-sps-43.appspot.com/share?meme=" + blob.getName() + "\" data-layout=\"button_count\"></div>");
+      response.getWriter().println("<br><div class=\"fb-share-button\" data-href=\"" + LINK + blob.getName() + "\" data-layout=\"button_count\"></div>");
+      response.getWriter().println("<a href=\"https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw\" class=\"twitter-hashtag-button\" data-url=\"" + LINK + blob.getName() +  "data-show-count=\"false\"></a><script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>");
       }
     }
   }
