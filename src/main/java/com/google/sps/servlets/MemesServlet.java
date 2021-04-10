@@ -93,27 +93,29 @@ public class MemesServlet extends HttpServlet {
             .build();
     datastore.put(memeEntity);
 
+    response.sendRedirect("/share?meme=" + fileName);
+
     // Output some HTML that shows the data the user entered.
     // You could also store the uploadedFileUrl in Datastore instead.
-    PrintWriter out = response.getWriter();
-    out.println("<head>");
-    out.println("<link rel=\"stylesheet\" href=\"style.css\">");
-    out.println("</head>");
-    out.println("<div id=\"content\">");
-    out.println("<h1 class=\"main-page-title \">Meme Generator</h1>");
-    out.println("<a href=\"" + uploadedFileUrl + "\">");
-    out.println("<img class=\"center-image\" src=\"" + uploadedFileUrl + "\" />");
-    out.println("</a><br>");
-    out.println("<p class=\"body-text\">");
-    out.println("Auto-generated tags: " + tags.toString());
-    out.println("</p>");
-    out.println("<form action=\"/memes\" method=\"POST\" enctype=\"multipart/form-data\">");
-    out.println("<label for=\"uploadImage\" class=\"upload-button\" style=\"top: 25px;\">Upload Meme</label>");
-    out.println("<input type=\"file\" value=\"Upload Meme\" id=\"uploadImage\" name=\"image\" class=\"hidden\" onchange=\"form.submit()\">");
-    out.println("</form>");
-    out.println("<a href=\"/memes\" class=\"no-underline\">");
-    out.println("<p class=\"see-memes-button\" style=\"top: 35px;\">See All Memes</p>");
-    out.println("</a>");
+    // PrintWriter out = response.getWriter();
+    // out.println("<head>");
+    // out.println("<link rel=\"stylesheet\" href=\"style.css\">");
+    // out.println("</head>");
+    // out.println("<div id=\"content\">");
+    // out.println("<h1 class=\"main-page-title \">Meme Generator</h1>");
+    // out.println("<a href=\"" + uploadedFileUrl + "\">");
+    // out.println("<img class=\"center-image\" src=\"" + uploadedFileUrl + "\" />");
+    // out.println("</a><br>");
+    // out.println("<p class=\"body-text\">");
+    // out.println("Auto-generated tags: " + tags.toString());
+    // out.println("</p>");
+    // out.println("<form action=\"/memes\" method=\"POST\" enctype=\"multipart/form-data\">");
+    // out.println("<label for=\"uploadImage\" class=\"upload-button\" style=\"top: 25px;\">Upload Meme</label>");
+    // out.println("<input type=\"file\" value=\"Upload Meme\" id=\"uploadImage\" name=\"image\" class=\"hidden\" onchange=\"form.submit()\">");
+    // out.println("</form>");
+    // out.println("<a href=\"/memes\" class=\"no-underline\">");
+    // out.println("<p class=\"see-memes-button\" style=\"top: 35px;\">See All Memes</p>");
+    // out.println("</a>");
   }
 
   /** createId() checks how many Memes are in datastore, and returns that number.
@@ -178,7 +180,7 @@ public class MemesServlet extends HttpServlet {
     // Output every meme stored in DataStore
     while (results.hasNext()) {
         Entity entity = results.next();
-        out.println("<img class=\"center-image\" src=\"" + entity.getString("url") + "\"/>");
+        out.println("<a href=\"/share?meme="+ entity.getString("name") + "\"><img class=\"center-image\" src=\"" + entity.getString("url") + "\"/></a>");
         out.println("<div id=\"fb-root\"></div><script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0\" nonce=\"ZRUaVmmR\"></script>");
         out.println("<br><div class=\"fb-share-button\" data-href=\"https://spring21-sps-43.appspot.com/share?meme=" + entity.getString("name") + "\" data-layout=\"button_count\"></div>");
         out.println("<a href=\"https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw\" class=\"twitter-hashtag-button\" data-url=\"https://spring21-sps-43.appspot.com/share?meme=" + entity.getString("name") +  "data-show-count=\"false\"></a><script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>");
