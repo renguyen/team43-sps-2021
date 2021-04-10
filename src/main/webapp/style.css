@@ -26,6 +26,7 @@ body {
     position: relative;
     left: 140px;
     top: 150px;
+    text-decoration: none;
 }
 
 .see-memes-button {
@@ -38,7 +39,7 @@ body {
     font-size: 50px;
     padding-left: 20px;
     padding-right: 20px;
-    position:relative;
+    position: relative;
     left: 132px;
     top: 150px;
 }
@@ -55,4 +56,16 @@ body {
 
 .hidden {
     opacity: 0;
+}
+
+.center-image {
+    position: relative;
+    left: 0px;
+    max-width: 100%;
+}
+
+.body-text {
+    color: #324B4E;
+    text-align: left;
+    font-size: 24px;
 }
