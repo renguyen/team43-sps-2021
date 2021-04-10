@@ -115,11 +115,6 @@ public class MemesServlet extends HttpServlet {
     out.println("</a>");
   }
 
-  // Replace the code inside this function with a proper implementation. This is just a placeholder
-  private static String getCaption() {
-      return("Hello World!");
-  }
-
   /** createId() checks how many Memes are in datastore, and returns that number.
    *  Example: If the datastore has no memes: the first time createId() is called will return 0.
    *           If datastore contains one meme: createId() will return 1.
@@ -218,5 +213,30 @@ public class MemesServlet extends HttpServlet {
         }
 
         return imageResponse.getLabelAnnotationsList();
-  }
+    }
+
+    /** This funtions  randomly  get a string  captions from an array of string. When the function is called
+     * it randomly return memes caption from an array
+     * input: null
+     * return: strings..
+     * 
+     */
+    private static String getCaption(){
+        // initialize an array  of captions
+        final String[] captionsList = {"Fred",
+          "When the professor is passionate about teaching and you genuinely understan and enjoy the class.", 
+          "When ur best friend calls u and have some gossip to tell u.", 
+          "When you go off on him and later on realize you were actually wrong",
+          "When you tell everyone about your summer body goals, but you didn’t tell them which summer",
+          "When you’ve been eating healthy for the past 15 minutes and STILL see no progress.",
+        };
+
+        // import the random module
+        Random random = new Random();
+        // get random  index of array element
+        int index = random.nextInt(captionsList.length);
+
+        // return random caption
+        return captionsList[index];
+    }   
 }
