@@ -84,7 +84,7 @@ public class MemesServlet extends HttpServlet {
         Entity.newBuilder(keyFactory.newKey())
             .set("id", createId())
             .set("url", uploadedFileUrl)
-            .set("caption","Hello World!")
+            .set("caption", getCaption())
             .set("tags", tags.toString())
             .set("likes", 0l)
             .set("upload-date", dateString)
@@ -113,6 +113,11 @@ public class MemesServlet extends HttpServlet {
     out.println("<a href=\"/memes\" class=\"no-underline\">");
     out.println("<p class=\"see-memes-button\" style=\"top: 35px;\">See All Memes</p>");
     out.println("</a>");
+  }
+
+  // Replace the code inside this function with a proper implementation. This is just a placeholder
+  private static String getCaption() {
+      return("Hello World!");
   }
 
   /** createId() checks how many Memes are in datastore, and returns that number.
