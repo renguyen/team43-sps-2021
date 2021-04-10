@@ -83,6 +83,7 @@ public class MemesServlet extends HttpServlet {
     FullEntity memeEntity =
         Entity.newBuilder(keyFactory.newKey())
             .set("id", createId())
+            .set("name", fileName)
             .set("url", uploadedFileUrl)
             .set("caption", getCaption())
             .set("tags", tags.toString())
@@ -178,6 +179,9 @@ public class MemesServlet extends HttpServlet {
     while (results.hasNext()) {
         Entity entity = results.next();
         out.println("<img class=\"center-image\" src=\"" + entity.getString("url") + "\"/>");
+        out.println("<div id=\"fb-root\"></div><script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0\" nonce=\"ZRUaVmmR\"></script>");
+        out.println("<br><div class=\"fb-share-button\" data-href=\"https://spring21-sps-43.appspot.com/share?meme=" + entity.getString("name") + "\" data-layout=\"button_count\"></div>");
+        out.println("<a href=\"https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw\" class=\"twitter-hashtag-button\" data-url=\"https://spring21-sps-43.appspot.com/share?meme=" + entity.getString("name") +  "data-show-count=\"false\"></a><script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>");
         out.println("<p>User: " + entity.getString("user") + "</p>");
         out.println("<p>Uploaded: " + entity.getString("upload-date"));
         out.println("<p>Likes: " + Long.toString(entity.getLong("likes")));
