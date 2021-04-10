@@ -94,28 +94,6 @@ public class MemesServlet extends HttpServlet {
     datastore.put(memeEntity);
 
     response.sendRedirect("/share?meme=" + fileName);
-
-    // Output some HTML that shows the data the user entered.
-    // You could also store the uploadedFileUrl in Datastore instead.
-    // PrintWriter out = response.getWriter();
-    // out.println("<head>");
-    // out.println("<link rel=\"stylesheet\" href=\"style.css\">");
-    // out.println("</head>");
-    // out.println("<div id=\"content\">");
-    // out.println("<h1 class=\"main-page-title \">Meme Generator</h1>");
-    // out.println("<a href=\"" + uploadedFileUrl + "\">");
-    // out.println("<img class=\"center-image\" src=\"" + uploadedFileUrl + "\" />");
-    // out.println("</a><br>");
-    // out.println("<p class=\"body-text\">");
-    // out.println("Auto-generated tags: " + tags.toString());
-    // out.println("</p>");
-    // out.println("<form action=\"/memes\" method=\"POST\" enctype=\"multipart/form-data\">");
-    // out.println("<label for=\"uploadImage\" class=\"upload-button\" style=\"top: 25px;\">Upload Meme</label>");
-    // out.println("<input type=\"file\" value=\"Upload Meme\" id=\"uploadImage\" name=\"image\" class=\"hidden\" onchange=\"form.submit()\">");
-    // out.println("</form>");
-    // out.println("<a href=\"/memes\" class=\"no-underline\">");
-    // out.println("<p class=\"see-memes-button\" style=\"top: 35px;\">See All Memes</p>");
-    // out.println("</a>");
   }
 
   /** createId() checks how many Memes are in datastore, and returns that number.
