@@ -23,13 +23,8 @@ import java.util.*;
 @WebServlet("/memes")
 @MultipartConfig
 public class MemesServlet extends HttpServlet {
-<<<<<<< HEAD
-  public final String PROJECT_ID = "spring21-sps-43";
-  public final String BUCKET_NAME = "spring21-sps-43.appspot.com"
-=======
   static final String PROJECT_ID = "spring21-sps-43";
   static final String BUCKET_NAME = "spring21-sps-43.appspot.com";
->>>>>>> ac2cd0ffba474995ca5e94bdfe941ce924b86195
 
   /**
   Handles the upload of the meme to the Cloud Storage
@@ -102,9 +97,9 @@ public class MemesServlet extends HttpServlet {
  */
   
 
-  public static String getCpation(){
+  private static String getCpation(){
 //     initilaise an array  of captions
-        final String[] proper_noun = {"Fred", 
+        final String[] captionList = {"Fred", 
         
         "When the professor is passionate about teaching and you genuinely understan and enjoy the class.", 
         " When ur best friend calls u and have some gossip to tell u.", 
@@ -119,11 +114,11 @@ public class MemesServlet extends HttpServlet {
     //   import the random module
         Random random = new Random();
         // get random  index of array element
-        int index = random.nextInt(proper_noun.length);
+        int index = random.nextInt(captionList.length);
        // System.out.println(proper_noun[index]);
 
     //    return random caption
-        return proper_noun[index];
+        return captionList[index];
         
         
 
