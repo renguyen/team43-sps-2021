@@ -102,7 +102,7 @@ public class MemesServlet extends HttpServlet {
  */
   
 
-  public static String getCpation(){
+  public static String getCaption(){
 //     initilaise an array  of captions
         final String[] proper_noun = {"Fred", 
         
