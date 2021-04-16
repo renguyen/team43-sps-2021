@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <meta charset="UTF-8" content="width=device-width; height=device-height">
+    <title>Meme Generator</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click <a href="/hello">here</a> to see content created by server code.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1 class="main-page-title ">Meme Generator</h1>
+    <!-- TODO: Replace "/hello" with actual links once the servlets are ready -->
+      <form action="/hello" method="POST" enctype="multipart/form-data">
+        <label for="uploadImage" class="upload-button">Upload Meme</label>
+        <input type="file" value="Upload Meme" id="uploadImage" name="image" class="hidden" onchange="form.submit()">
+      </form>
+      <a href="/hello" class="no-underline">
+        <p class="see-memes-button">See All Memes</p>
+      </a>
     </div>
-
-    <form method="POST" action="/comment">
-      <textarea name="comment"></textarea>
-      <br/>
-      <button>Submit</button>
-    </form>
+    
+    <div class="center">
+        <form method="POST" action="/comment">
+            <textarea name="comment" placeholder="Comment..."></textarea>
+            <br/>
+            <button onclick="getComments()">Submit</button>
+        </form>
+        
+        <div id="comment-block">
+        
+        </div>
+    </div>
 
   </body>
 </html>

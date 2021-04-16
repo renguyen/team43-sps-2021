@@ -12,17 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+/** Fetches stats from the server and adds them to the page. */
+async function getComments() {
+
+  const responseFromServer = await fetch('/comment');
+  const commentsFromRespose = await responseFromServer.text();
+  const commentsListElement = document.getElementById('comment-block');
+
+  commentsListElement.innerHTML = commentsFromResponse;
 }

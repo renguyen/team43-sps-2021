@@ -29,11 +29,15 @@ import java.util.*;
 @MultipartConfig
 public class CommentsServlet extends HttpServlet {
 
+  /** doGet()
+   * Gets a usercomments from datastore kind 'Comment' (which are organized by time posted).
+   * Prints all comments stored in datastore.
+   */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     response.setContentType("text/html;");
-    response.getWriter().println("<h1>Show Comments.</h1>");
+    response.getWriter().println("<h1>Comments:</h1>");
     response.getWriter().println("<ul>"); // <ul> --> 'unordered list element'
     
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
@@ -45,17 +49,22 @@ public class CommentsServlet extends HttpServlet {
       .build();
     QueryResults<Entity> results = datastore.run(query);
 
-    // Basicallly stored like(?) a list. This is printing comments.
+    // Basicallly stored like a list. This is printing comments.
     while (results.hasNext()) {
       Entity entity = results.next();
-      String message = entity.getString("text");
+      String message = entity.getString("comment");
       response.getWriter().println("<li>" + message + "</li>");
     }
-    
     response.getWriter().println("</ul>");
-    response.getWriter().println("<p><a href=\"/\">Back</a></p>"); // tbh a bit confused about this.
+    //response.getWriter().println("<p><a href=\"/\">Back</a></p>"); // tbh a bit confused about this.
+    
+    
   }
 
+  /** doPost()
+   * Gets a user's inputed comment and adds it to datastore along with its timestamp.
+   * It then calls doGet() so the user has an immediate view of their comment now posted. 
+   */
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -73,7 +82,7 @@ public class CommentsServlet extends HttpServlet {
  
     // Redirect to /comment.
     // The request will be routed to the doGet() function.
-    response.sendRedirect("/comment");
+    // response.sendRedirect("/comment");
 
   }
 
