@@ -37,7 +37,7 @@ public class CommentsServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     response.setContentType("text/html;");
-    response.getWriter().println("<h1>Comments:</h1>");
+    response.getWriter().println("<p>Comments:</p>");
     response.getWriter().println("<ul>"); // <ul> --> 'unordered list element'
     
     Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
@@ -53,10 +53,10 @@ public class CommentsServlet extends HttpServlet {
     while (results.hasNext()) {
       Entity entity = results.next();
       String message = entity.getString("comment");
-      response.getWriter().println("<li>" + message + "</li>");
+      response.getWriter().println("<p class='comment-block'>" + message + "</p>");
     }
     response.getWriter().println("</ul>");
-    //response.getWriter().println("<p><a href=\"/\">Back</a></p>"); // tbh a bit confused about this.
+    //response.getWriter().println("<p><a href=\"/\">Back</a></p>"); // Unnecessary
     
     
   }
@@ -80,9 +80,9 @@ public class CommentsServlet extends HttpServlet {
       .build();
     datastore.put(commentEntity); // Adding comment to Data Store
  
-    // Redirect to /comment.
+    // Redirect to /"homepage".
     // The request will be routed to the doGet() function.
-    // response.sendRedirect("/comment");
+    response.sendRedirect("/");
 
   }
 

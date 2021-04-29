@@ -58,12 +58,25 @@ body {
 }
 
 /* Comment Styling */
+/* this was the original
 .center {
-  margin: auto;
+  margin-top: 25px;
   width: 70%;
   background: white;
   border: 3px rgb(164, 164, 245);
   padding: 10px;
+  bottom: 0;
+  position: absolute;
+} */
+
+.center {
+  margin-top: 20%;
+  width: auto;
+  background: white;
+  border: 3px rgb(164, 164, 245);
+  padding: 10px;
+  bottom: 0;
+  position: static;
 }
 textarea {
   margin: auto;
@@ -78,19 +91,26 @@ textarea {
   resize: none;
 }
 #comment-block{
-    /* Font */
-    /* Background */
-    background: whitesmoke;
-    border-top: 2px solid gold;
-    border:1px solid #ccc;
-    /* Positioning */
-    margin: auto;
-    width: 60%;
-    padding: 10px;
-    position:  revert;
-    bottom: 0;
-    z-index: 1;
-    /* height:100px; */
-    /* float:left; */
-    /* margin-right:5px; */
+  margin: auto;
+  width: 100%;
+  height: auto;
+  padding: 2px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  resize: none;
+}
+.comment-block{
+  margin: auto, 2px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
 }

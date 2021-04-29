@@ -18,7 +18,7 @@
 async function getComments() {
 
   const responseFromServer = await fetch('/comment');
-  const commentsFromRespose = await responseFromServer.text();
+  const commentsFromResponse = await responseFromServer.text();
   const commentsListElement = document.getElementById('comment-block');
 
   commentsListElement.innerHTML = commentsFromResponse;
