@@ -81,12 +81,12 @@ public class MemesServlet extends HttpServlet {
     Storage storage = StorageOptions.newBuilder().setProjectId(PROJECT_ID).build().getService();
     Bucket bucket = storage.get(BUCKET_NAME);
     Page<Blob> blobs = bucket.list();
-
+    String imgTag = "";
     // Output <img> elements as HTML.
     for (Blob blob : blobs.iterateAll()) {
-      String imgTag = String.format("<img src=\"%s\" width = \"300\"/>", blob.getMediaLink());
-      response.getWriter().println(imgTag);
+      imgTag = imgTag + String.format("<a href=\"" + "https://spring21-sps-43.appspot.com/share?meme=" + blob.getName() + "\"><img src=\"%s\" width = \"300\"/></a>", blob.getMediaLink());
     }
+    response.getWriter().println(imgTag);
   }
 
 /** This funtions  randomly  get a string  captions from an array of string. When the function is called
