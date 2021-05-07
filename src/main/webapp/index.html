@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
     <div id="content">
       <h1 class="main-page-title ">Meme Generator</h1>
     <!-- TODO: Replace "/hello" with actual links once the servlets are ready -->
@@ -18,5 +18,18 @@
         <p class="see-memes-button">See All Memes</p>
       </a>
     </div>
+    
+    <div class="center">
+        <form method="POST" action="/comment">
+            <textarea name="comment" placeholder="Comment..."></textarea>
+            <br/> 
+            <button onclick="getComments()">Submit</button>
+        </form>
+        
+        <div id="comment-block">
+        
+        </div>
+    </div>
+
   </body>
 </html>

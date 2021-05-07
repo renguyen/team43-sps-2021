@@ -56,3 +56,49 @@ body {
 .hidden {
     opacity: 0;
 }
+
+.center {
+  margin-top: 20%;
+  width: auto;
+  background: white;
+  border: 3px rgb(164, 164, 245);
+  padding: 10px;
+  bottom: 0;
+  position: static;
+}
+textarea {
+  margin: auto;
+  width: 70%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+#comment-block{
+  margin: auto;
+  width: 100%;
+  height: auto;
+  padding: 2px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  resize: none;
+}
+.comment-block{
+  margin: auto, 2px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
