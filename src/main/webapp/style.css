@@ -57,18 +57,6 @@ body {
     opacity: 0;
 }
 
-/* Comment Styling */
-/* this was the original
-.center {
-  margin-top: 25px;
-  width: 70%;
-  background: white;
-  border: 3px rgb(164, 164, 245);
-  padding: 10px;
-  bottom: 0;
-  position: absolute;
-} */
-
 .center {
   margin-top: 20%;
   width: auto;
