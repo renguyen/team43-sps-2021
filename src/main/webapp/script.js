@@ -14,7 +14,7 @@
 
 
 
-/** Fetches stats from the server and adds them to the page. */
+/** Fetches comment list from the server and adds them to the page. */
 async function getComments() {
 
   const responseFromServer = await fetch('/comment');
